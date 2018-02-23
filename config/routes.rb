@@ -7,6 +7,7 @@ Rails.application.routes.draw do
       get "dishes/entrees", to: "dishes#entrees"
       get "dishes/appetizers", to: "dishes#appetizers"
       get "dishes/desserts", to: "dishes#desserts"
+      post "dishes/:id/rate", to: "dishes#rate"
 
       resources :dishes, only: %i(index show)
     end

@@ -58,5 +58,16 @@ RSpec.describe "Dishes" do
       expect(json.size).to eq(2)
       expect(json.first["id"]).to eq(dish.id)
     end
+
+    it "can rate dishes" do
+      dish = create(:dish, :dessert)
+      rating_score = 5
+
+      post "/api/v1/dishes/#{dish.id}/rate",
+        params: { rating: { score: rating_score, review: "This was amazing!" } }
+
+      expect(response).to be_a_success
+      expect(json["score"]).to eq(rating_score)
+    end
   end
 end
