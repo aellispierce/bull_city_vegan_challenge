@@ -1,4 +1,9 @@
 FactoryBot.define do
+  factory :rating do
+    dish
+    score 1
+  end
+
   factory :dish do
     restaurant
     sequence(:name) { |n| "Something with Jackfruit" }
